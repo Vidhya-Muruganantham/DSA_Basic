@@ -1,0 +1,54 @@
+import java.util.Scanner;
+
+class Node {
+    int data;
+    Node next;
+
+     Node(int data) {
+       this. data = data;
+       this. next = null;
+    }
+}
+
+public class Main {
+    static Node head = null,temp=null;;
+
+    static void insert(int data) {
+        Node newNode = new Node(data);
+        
+        if (head == null) {
+            head = newNode;
+            temp = newNode;
+        } else {
+           temp.next=newNode;
+           temp=newNode;
+            
+        }
+    }
+
+    static void print() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int data;
+
+        while (true) {
+            data = scanner.nextInt();
+            if (data < 0) {
+                if (head == null) {
+                    System.out.println("List is empty");
+                }
+                break;
+            }
+            insert(data);
+        }
+
+        print();
+    }
+}
